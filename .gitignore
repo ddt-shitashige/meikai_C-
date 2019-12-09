@@ -1,7 +1,5 @@
 src/*.exe
 *.dll
-!mosquitto.dll
-!pthreadVC2.dll
 dll/
 *.cache
 *.log
