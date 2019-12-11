@@ -29,4 +29,5 @@ int main() {
 	/* Œ¸ŽZ’l•\Ž¦ */
 	std::cout << "10‚ðŒ¸‚¶‚½’l‚Í" << inputNumer - 10 << "‚Å‚·\n";
 
+	return 0;
 }
