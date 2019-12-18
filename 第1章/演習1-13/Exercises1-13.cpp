@@ -68,4 +68,5 @@ int main() {
 	/* Œ‹‰Êo—Í */
 	std::cout << "2Œ…‚Ì³‚Ì®”’l‚Í" << twoDigitNegativeValue << "\n";
 
+	return 0;
 }
