@@ -14,7 +14,11 @@
  /**
   * @fn
   * メイン関数
+<<<<<<< Updated upstream
   * @brief ヘッダをインクルードする指令が欠如している場合の動作確認
+=======
+  * @brief 乱数を生成して、表示する関数。
+>>>>>>> Stashed changes
   * @return 0:正常終了
   */
 int main() {
