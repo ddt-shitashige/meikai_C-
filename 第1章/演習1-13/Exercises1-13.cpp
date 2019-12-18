@@ -27,9 +27,12 @@ int main() {
 	srand((unsigned int)time(NULL));
 
 	int oneDigitPositiveValue = 0;	// 1桁の正の整数値
-
-	/* 10で割ることにより、1桁の乱数設定 */
-	oneDigitPositiveValue = rand() % 10;
+	
+	/* この乱数生成だと、0が出ることがあるので、0を避ける為に、dowhile文で避ける */
+	do {
+		/* 10で割ることにより、1桁の乱数設定 */
+		oneDigitPositiveValue = rand() % 10;
+	}while(oneDigitPositiveValue == 0);
 
 	/* 結果出力 */
 	std::cout << "1桁の正の整数値は" << oneDigitPositiveValue << "\n";
@@ -43,8 +46,11 @@ int main() {
 
 	int oneDigitNegativeValue = 0;	// 1桁の負の整数値
 
-	/* -1を掛けることで、負値の乱数設定 */
-	oneDigitNegativeValue = rand() % 10 * (-1);
+	/* この乱数生成だと、0が出ることがあるので、0を避ける為に、dowhile文で避ける */
+	do {
+		/* -1を掛けることで、負値の乱数設定 */
+		oneDigitNegativeValue = rand() % 10 * (-1);
+	} while (oneDigitPositiveValue == 0);
 
 	/* 結果出力 */
 	std::cout << "1桁の負の整数値は" << oneDigitNegativeValue << "\n";
