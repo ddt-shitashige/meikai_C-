@@ -18,7 +18,7 @@ using namespace std;
   */
 int main() {
 
-	/* 文字表示 */
+	/* 自分の名前の文字表示 */
 	cout << "下\n重\n達\n矢";
 
 	return 0;
