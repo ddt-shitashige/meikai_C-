@@ -13,3 +13,5 @@ Release/
 *.config
 *iobj
 *ipdb
+*.sln
+*.vcxproj*
