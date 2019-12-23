@@ -20,6 +20,7 @@ using namespace std;
   */
 int main() {
 
+	/* 自分の名前と性の間を1行開けるように表示 */
 	cout << "下\n重\n\n達\n矢";
 
 	return 0;
