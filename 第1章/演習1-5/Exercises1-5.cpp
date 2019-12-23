@@ -7,7 +7,9 @@
  */
 
 
-#include"Exercises1-5.h"
+#include <iostream>
+
+using namespace std;
 
 
  /**
@@ -18,45 +20,7 @@
   */
 int main() {
 
-	string lastName = "下重";			// 自分の苗字。
-	string name = "達矢";				// 自分の名前。
-	string displayString;				// 表示文字列。
-
-	/* 自分の苗字の2文字目に改行を与える */
-	lastName = insertLineBreak(lastName, 2);
-
-	/* 自分の名前の2文字目に改行を与える */
-	name = insertLineBreak(name, 2);
-
-	/* 表示文字列を作成 */
-	displayString = lastName + "\n\n" + name;
-
-	/* 文字表示 */
-	cout << displayString;
+	cout << "下\n重\n\n達\n矢";
 
 	return 0;
-}
-
-
-/**
- * @fn
- * 改行関数
- * @brief 指定した文字数の所にて改行を行う。
- * @param (targetString) 対象文字列
- * @param (targetCharacters) 対象文字数
- * @return 改行した文字列。
- */
-string insertLineBreak(const string targetString, const int targetCharacters) {
-
-	string resultString;	// 改行文字を挿入した文字列。
-
-	/* 対象文字列をコピー */
-	resultString = targetString;
-
-	/* 改行文字を対象文字数に挿入 */
-	resultString.insert(targetCharacters, "\n");
-
-	/* 完成した文字列をリターン */
-	return resultString;
-
 }
