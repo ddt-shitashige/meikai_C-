@@ -6,7 +6,6 @@
  * @date 20191225
  */
 #include <iostream>
-using namespace std;
 /**
  * @fn
  * メイン関数
@@ -18,14 +17,67 @@ int main() {
 	int secondInputNumber = 0;	// 2番目に入力された数字
 	int thirdInputNumber = 0;	// 3番目に入力された数字
 	int medianResult = 0;		// 最小結果
+	int maximumResult = 0;		// 最大結果
 
 	/* ユーザーに入力を促すメッセージ */
-	cout << "数字を3つ連続で入力してください";
+	std::cout << "数字を3つ連続で入力してください";
 
 	/* 文字を入力させる */
-	cin >> firstInputNumber >> secondInputNumber >> thirdInputNumber;
+	std::cin >> firstInputNumber >> secondInputNumber >> thirdInputNumber;
+
+	/* firstInputNumberと secondInputNumberを比較して、小さい方をmedianResultに格納する */
+	medianResult = firstInputNumber < secondInputNumber ? firstInputNumber : secondInputNumber;
+
+	/* minimumResuktとthirdInputNumberを比較して、小さい方をmedianResultに格納する */
+	medianResult = medianResult < thirdInputNumber ? medianResult : thirdInputNumber;
+
+	/* firstInputNumberと secondInputNumberを比較して、大きい方をmaximumResultに格納する */
+	maximumResult = firstInputNumber < secondInputNumber ? secondInputNumber : firstInputNumber;
+
+	/* minimumResuktとthirdInputNumberを比較して、大きい方をmaximumResultに格納する */
+	maximumResult = maximumResult < thirdInputNumber ? thirdInputNumber : maximumResult;
+	
+	/* 今から出力する内容を伝える文字列 */
+	std::cout<<"中央値は";
+
+	/* 同じ値があれば、それは中央値になるので、その数値を出力 */
+	if (firstInputNumber == secondInputNumber) {
+		/* 結果出力 */
+		std::cout<< firstInputNumber <<"です。";
+		/* 最後の文を出力したので、メソッド終了 */
+		return 0;
+	}
+	/* 同じ値があれば、それは中央値になるので、その数値を出力 */
+	else if (firstInputNumber == thirdInputNumber) {
+		/* 結果出力 */
+		std::cout << firstInputNumber << "です。";
+		/* 最後の文を出力したので、メソッド終了 */
+		return 0;
+	}
+	/* 同じ値があれば、それは中央値になるので、その数値を出力 */
+	else if (secondInputNumber == thirdInputNumber) {
+		/* 結果出力 */
+		std::cout << secondInputNumber << "です。";
+		/* 最後の文を出力したので、メソッド終了 */
+		return 0;
+	}
 
 
+	/* 1番目に入力した文字が中央値であればその値を出力 */
+	if (firstInputNumber != medianResult && firstInputNumber != maximumResult) {
+		/* 結果出力 */
+		std::cout << firstInputNumber << "です。";
+	}
+	/* 2番目に入力した文字が中央値であればその値を出力 */
+	else if (secondInputNumber != medianResult && secondInputNumber != maximumResult) {
+		/* 結果出力 */
+		std::cout << secondInputNumber << "です。";
+	}
+	/* 3番目に入力した文字が中央値であればその値を出力 */
+	else if (thirdInputNumber != medianResult && thirdInputNumber != maximumResult) {
+		/* 結果出力 */
+		std::cout << thirdInputNumber << "です。";
+	}
 
 
 	return 0;
