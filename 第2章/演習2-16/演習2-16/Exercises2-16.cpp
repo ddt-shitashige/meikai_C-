@@ -24,11 +24,7 @@ int main() {
 	std::cout << "1～12の数字を入力してください";
 
 	/* 数値入力 */
-<<<<<<< HEAD
 	std::cin >> inputNumber;
-=======
-	std::cin >>inputNumber;
->>>>>>> ccf710b195a8bd4bc591ba063db82c99bc2b4376
 
 	/* スイッチ文にて、入力数値によって表示する文字列を変える */
 	switch (inputNumber) {
