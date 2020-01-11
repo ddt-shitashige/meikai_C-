@@ -17,7 +17,7 @@ using namespace std;
  * @return 0:正常終了
  */
 int main() {
-	int inputCount;		// 問題文がこう行っているだけで、私の意志ではない。
+	int inputCount;		// 入力文字
 
 	/* メッセージ表示 */
 	cout << "何個表示しますか：";
