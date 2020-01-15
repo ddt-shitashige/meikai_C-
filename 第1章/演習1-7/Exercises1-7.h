@@ -7,11 +7,9 @@
  * @date 20191211
  */
 
-using namespace std;
-
 
 int main();
 
-int averageCalculation(const int firstNumber, const int secondNumber, const int thirdNumber);
+int calculationAverage(const int firstNumber, const int secondNumber, const int thirdNumber);
 
-int totalCalculation(const int firstNumber, const int secondNumber, const int thirdNumber);
+int calculationTotal(const int firstNumber, const int secondNumber, const int thirdNumber);

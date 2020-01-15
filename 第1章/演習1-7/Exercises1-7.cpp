@@ -19,10 +19,10 @@ int main() {
 	const int thirdInt = 9;		// 3つ目のint型
 
 	/* 合計値出力 */
-	cout << "合計値:" << totalCalculation(firstInt, secondInt, thirdInt) << "\n";
+	std::cout << "合計値:" << calculationTotal(firstInt, secondInt, thirdInt) << "\n";
 
 	/* 平均値出力 */
-	cout << "平均値:" << averageCalculation(firstInt, secondInt, thirdInt) << "\n";
+	std::cout << "平均値:" << calculationAverage(firstInt, secondInt, thirdInt) << "\n";
 }
 
 
@@ -33,7 +33,7 @@ int main() {
  * @param[in] thirdNumber 3つ目の数字
  * @return 平均値
  */
-int averageCalculation(const int firstNumber, const int secondNumber, const int thirdNumber){
+int calculationAverage(const int firstNumber, const int secondNumber, const int thirdNumber){
 
 	/* 平均値計算 */
 	return ((firstNumber + secondNumber + thirdNumber) / 3);
@@ -47,7 +47,7 @@ int averageCalculation(const int firstNumber, const int secondNumber, const int 
  * @param[in] thirdNumber 3つ目の数字
  * @return 合計値
  */
-int totalCalculation(const int firstNumber, const int secondNumber, const int thirdNumber) {
+int calculationTotal(const int firstNumber, const int secondNumber, const int thirdNumber) {
 
 	/* 合計値計算 */
 	return (firstNumber + secondNumber + thirdNumber);
