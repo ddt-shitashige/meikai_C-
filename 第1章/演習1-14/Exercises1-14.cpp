@@ -27,10 +27,8 @@ int main() {
 	/* 初期シードを決定 */
 	srand((unsigned int)time(NULL));
 
-	int tenLessValue = 0;	// 10以下の値
-
 	/* 11で割ることにより、10以下の乱数設定 */
-	tenLessValue = rand() % 11;
+	int tenLessValue = rand() % 11;		// 10以下の値
 
 	/* 10以下の乱数に-5する事によって、-5～+5の増減を行う */
 	inputNumber += tenLessValue - 5;
