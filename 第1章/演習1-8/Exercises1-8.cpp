@@ -13,19 +13,11 @@
  */
 int main() {
 
-	int initializerInt = 3;		// 初期化子を与えたint
-	int noInitializerInt;		// 初期化子を与え無かったint
+	int initializerInt = 3.2;		// 初期化子に少数の実数値を与えたint
 
-	/* 数値代入 */
-	noInitializerInt = 3;
-
-
-	/* 合計値出力 */
-	std::cout << "初期化子を与えたintの数値:" << initializerInt << "\n";
-
-	/* 平均値出力 */
-	std::cout << "初期化子を与えなかったintの数値:" << noInitializerInt << "\n";
+	/* 値出力 */
+	std::cout << "初期化子に少数の実数値を与えたintの数値:" << initializerInt << "\n";
 
 	/* 一緒ですね */
-	std::cout << "一緒ですね";
+	std::cout << "少数が切り捨てられる。";
 }
