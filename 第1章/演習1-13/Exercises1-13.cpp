@@ -14,11 +14,7 @@
  /**
   * @fn
   * メイン関数
-<<<<<<< Updated upstream
-  * @brief ヘッダをインクルードする指令が欠如している場合の動作確認
-=======
   * @brief 乱数を生成して、表示する関数。
->>>>>>> Stashed changes
   * @return 0:正常終了
   */
 int main() {
@@ -32,11 +28,11 @@ int main() {
 
 	int oneDigitPositiveValue = 0;	// 1桁の正の整数値
 	
-	/* この乱数生成だと、0が出ることがあるので、0を避ける為に、dowhile文で避ける */
-	do {
-		/* 10で割ることにより、1桁の乱数設定 */
-		oneDigitPositiveValue = rand() % 10;
-	}while(oneDigitPositiveValue == 0);
+	/* 乱数から9のあまりを求める事により、値が0～8の間になる */
+	oneDigitPositiveValue = rand() % 9;
+
+	/* 0～8の間の値をインクリメントする事により、1～9の値となる */
+	oneDigitPositiveValue++;
 
 	/* 結果出力 */
 	std::cout << "1桁の正の整数値は" << oneDigitPositiveValue << "\n";
@@ -50,11 +46,12 @@ int main() {
 
 	int oneDigitNegativeValue = 0;	// 1桁の負の整数値
 
-	/* この乱数生成だと、0が出ることがあるので、0を避ける為に、dowhile文で避ける */
-	do {
-		/* -1を掛けることで、負値の乱数設定 */
-		oneDigitNegativeValue = rand() % 10 * (-1);
-	} while (oneDigitPositiveValue == 0);
+	/* 乱数から9のあまりを求め、-1を乗算する事により、値が0～-8の間になる */
+	oneDigitNegativeValue = rand() % 9 * (-1);
+
+	/* 0～8の間の値をデインクリメントする事により、-1～-9の値となる */
+	oneDigitNegativeValue--;
+
 
 	/* 結果出力 */
 	std::cout << "1桁の負の整数値は" << oneDigitNegativeValue << "\n";
@@ -68,12 +65,12 @@ int main() {
 
 	int twoDigitNegativeValue = 0;	// 2桁の正の整数値
 
-	/* 結果が1桁だった場合はもう一度やり直すループ */
-	do {
-		/* 乱数設定 */
-		twoDigitNegativeValue = rand() % 100;
+	/* 乱数から90のあまりを求める事により、値が0～89の間になる */
+	twoDigitNegativeValue = rand() % 90;
 
-	} while (twoDigitNegativeValue <= 10);
+	/* 0～89の間の値を+10する事により、10～99の値となる */
+	twoDigitNegativeValue += 10;
+
 
 	/* 結果出力 */
 	std::cout << "2桁の正の整数値は" << twoDigitNegativeValue << "\n";
