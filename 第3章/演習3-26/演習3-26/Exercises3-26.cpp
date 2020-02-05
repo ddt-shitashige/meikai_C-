@@ -93,6 +93,7 @@ int main() {
 	}
 	/* 3勝ちモードの処理 */
 	else {
+		/* どちらかの勝ち数が3になったらループから抜ける */
 		do {
 			/* 選択肢説明 */
 			std::cout << "数字を入力してください。(0:グー。1:チョキ。2:パー)\n";
@@ -132,12 +133,17 @@ int main() {
 				/* もう一度 */
 				continue;
 			}
+			/* 戦績表示 */
 			std::cout << "\n現在の戦績\n貴方：" << myWinCount << "勝　CPU：" << cpuWinCount << "勝\n\n";
 		} while (myWinCount != 3 && cpuWinCount != 3);
+		/* 自分の価値カウントが3だった場合 */
 		if (myWinCount == 3) {
+			/* 勝者表示 */
 			std::cout << "貴方が先に3勝しました。\n";
 		}
+		/* CPUの価値カウントが3だった場合 */
 		else {
+			/* 勝者表示 */
 			std::cout << "CPUが先に3勝しました。\n";
 		}
 	}
