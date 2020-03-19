@@ -45,7 +45,7 @@ void print_season(int m) {
 /**
   * @fn
   * ƒƒCƒ“ŠÖ”
-  * @brief ‰~‚Ì–ÊÏ‚ğ‹‚ß‚éŠÖ”
+  * @brief ‹Gß‚ğ•\¦‚·‚éŠÖ”
   * @return 0:³íI—¹
   */
 int main() {
