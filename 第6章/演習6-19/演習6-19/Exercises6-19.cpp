@@ -13,7 +13,7 @@
 
  /**
    * @fn
-   * put_count
+   * rand1
    * @brief ƒ‰ƒ“ƒ_ƒ€”’l¶¬
    * @return
    */
