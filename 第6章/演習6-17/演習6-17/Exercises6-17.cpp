@@ -1,7 +1,7 @@
 /**
  * @file Exerises6-17.cpp
  * @brief 演習6-17	呼び出された回数を表示する関数put_countを作成せよ。右に示すのは、関数put_countを3回呼び出した実行結果である。
- 					void put_count ()
+					void put_count ()
  * @author shitashige
  * @date 20200322
  */
@@ -21,7 +21,7 @@ void put_count() {
 	/* カウント数値カウントアップ */
 	countNumber++;
 	/* メッセージ出力 */
-	std::cout<<"put_count："<< countNumber <<"回目\n";
+	std::cout << "put_count：" << countNumber << "回目\n";
 }
 
 /**
@@ -42,7 +42,7 @@ int main() {
 	std::cin >> count;
 
 	/* ユーザーが入力した数値分ループ */
-	for (int i=0; i < count; i++) {
+	for (int i = 0; i < count; i++) {
 		/* 呼び出しカウント関数呼び出し */
 		put_count();
 	}
