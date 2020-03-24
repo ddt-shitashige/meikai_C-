@@ -21,15 +21,15 @@ using namespace std;
  * @param idx 削除する要素番号
  * @return 問題文に指定してあるからするけどこれintの必要ないのでは？
  */
-int aryrmv(int a[], int n,int idx) {
+int aryrmv(int a[], int n, int idx) {
 
 	/* 要素番号から配列を削除するループ */
-	for (int i = idx+1; i < n; i++) {
+	for (int i = idx + 1; i < n; i++) {
 
 		/* 値を加算する */
-		a[i-1]= a[i];
+		a[i - 1] = a[i];
 	}
-    return 0;
+	return 0;
 }
 
 
@@ -53,18 +53,18 @@ int main() {
 		cin >> array[i];
 	}
 
-	int removeIndex=0;	// 削除する項番
+	int removeIndex = 0;	// 削除する項番
 
 	do {
 		/* メッセージ表示 */
-		cout <<"削除する項番を入力してください。\n";
+		cout << "削除する項番を入力してください。\n";
 		/* 削除する項番入力 */
-		cin>>removeIndex;
+		cin >> removeIndex;
 		/* 配列の要素数以上に値があった場合はもう一度行う */
-	}while(removeIndex<1||removeIndex>5);
+	} while (removeIndex < 1 || removeIndex>5);
 
 	/* ずらし関数呼び出し */
-	aryrmv(array,element,removeIndex);
+	aryrmv(array, element, removeIndex);
 
 	/* 配列の中身を表示するループ */
 	for (int i = 0; i < element; i++) {
