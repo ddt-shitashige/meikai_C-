@@ -19,7 +19,7 @@ const int  heightElement = 3;	// 配列の縦要素数
 /**
  * @fn
  * main
- * @brief 配列に要素を入れる
+ * @brief 配列の最大値を求める
  * @param a 受け取る配列
  * @param m 最大値をまとめた配列
  * @param n 要素数
@@ -28,19 +28,19 @@ const int  heightElement = 3;	// 配列の縦要素数
 int maxline(int a[][5], int m[], int n) {
 
 	/* 配列の中身を全て見るループ */
-	for(int i=0;i< heightElement;i++){
+	for (int i = 0; i < heightElement; i++) {
 
 		int maxNumber = 0;	// 最大数値
 		/* 配列の中身を全て見るループ */
-		for(int j=0;j<rowElement;j++){
+		for (int j = 0; j < rowElement; j++) {
 			/* 最大値が今までのを上回っているかを確認 */
-			if(maxNumber<a[i][j]){
+			if (maxNumber < a[i][j]) {
 				/* 数値を入れる */
-				maxNumber=a[i][j];
+				maxNumber = a[i][j];
 			}
 		}
 		/* 返還する配列に格納 */
-		m[i]=maxNumber;
+		m[i] = maxNumber;
 	}
 
 	return 0;
@@ -63,10 +63,10 @@ int main() {
 		/* 配列の中身を入れる */
 		for (int j = 0; j < rowElement; j++) {
 
-		/* メッセージ表示 */
-		cout << "array[" << i << "]:" << "[" << j << "]";
-		/* cの中身を入れる */
-		cin >> array[i][j];
+			/* メッセージ表示 */
+			cout << "array[" << i << "]:" << "[" << j << "]";
+			/* cの中身を入れる */
+			cin >> array[i][j];
 		}
 	}
 
