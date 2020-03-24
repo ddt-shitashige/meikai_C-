@@ -2,7 +2,7 @@
  * @file Exerises7-7.cpp
  * @brief 演習7-7	要素数nの配列aから要素a[idx]を削除する関数aryrmvを作成せよ。
  *					削除はa[idx]より後方の全要素を一つ前方にずらすことによって行う。移動されずにあまってしまう末尾要素a[n-1]の値は変更しなくてもよい。たとえば、配列aの要素が{1, 3, 4, 7, 9, 11}のときにaryrmv(a, 6, 2) と呼び出した後の配列aの要素は{1, 3, 7, 9, 11, 11} となる。
- *					aryrmv(int a[], int n,int idx)
+ *					int aryrmv(int a[], int n,int idx)
  * @author shitashige
  * @date 20200324
  */
