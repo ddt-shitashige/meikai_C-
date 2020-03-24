@@ -2,7 +2,7 @@
  * @file Exerises7-10.cpp
  * @brief 演習7-10	n行5列のint型2次元配列aの各行の最大値を、要素数nの1次元配列mに格納する関数maxlineを作成せよ。
  *					たとえば、aに受け取った3行5列の配列の構成要素が{ {1, 2, 5, 4, 8}, {6, 7, 4, 2, 3}, {3, 0, 5, 9, 1} }であれば、mに{8, 7, 9}を格納すること。
- *					int maxline(int a[][rowElement], int m[], int n)
+ *					int maxline(int a[][5], int m[], int n)
  * @author shitashige
  * @date 20200324
  */
@@ -25,7 +25,7 @@ const int  heightElement = 3;	// 配列の縦要素数
  * @param n 要素数
  * @return 問題文に指定してあるからするけどこれintの必要ないのでは？
  */
-int maxline(int a[][rowElement], int m[], int n) {
+int maxline(int a[][5], int m[], int n) {
 
 	/* 配列の中身を全て見るループ */
 	for(int i=0;i< heightElement;i++){
