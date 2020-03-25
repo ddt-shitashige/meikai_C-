@@ -10,18 +10,18 @@
 #include <iostream>
 
 
-/**
- * @fn
- * putv
- * @brief 文字列を1文字毎に改行する。
- * @param s 文字列
- * @return 0:正常終了
- */
+ /**
+  * @fn
+  * putv
+  * @brief 文字列を1文字毎に改行する。
+  * @param s 文字列
+  * @return 0:正常終了
+  */
 void putv(const char *s) {
 	/* null文字が来るまでループ */
 	for (int i = 0; i < std::strlen(s); i++) {
 		/* 文字列出力 */
-		std::cout<<s[i]<<'\n';
+		std::cout << s[i] << '\n';
 	}
 }
 
@@ -33,15 +33,15 @@ void putv(const char *s) {
  */
 int main() {
 
-	const int stringLen=30;	// 文字長さ
+	const int stringLen = 30;	// 文字長さ
 
 	char inputString[stringLen];	// 入力文字
 
 	/* メッセージ表示 */
-	std::cout<<"文字列を入力してください。";
+	std::cout << "文字列を入力してください。";
 
 	/* 文字列入力 */
-	std::cin.getline(inputString,stringLen);
+	std::cin.getline(inputString, stringLen);
 
 	/* 文字列を1文字ずつ改行 */
 	putv(inputString);
