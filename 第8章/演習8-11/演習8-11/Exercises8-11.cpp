@@ -12,7 +12,7 @@
 
  /**
   * @fn
-  * FakeStrcpy
+  * FakeStrcmp
   * @brief •¶š—ñ‚Ì”äŠr‚ğs‚¤
   * @param comparisonDestination ”äŠræ
   * @param comparisonSource ”äŠrŒ³
@@ -35,7 +35,7 @@ int FakeStrcmp(char *comparisonDestination, const char *comparisonSource) {
 
 /**
  * @fn
- * FakeStrncpy
+ * FakeStrncmp
  * @brief •¶š—ñ‚Ì”äŠr‚ğs‚¤
  * @param comparisonDestination ”äŠræ
  * @param comparisonSource ”äŠrŒ³
