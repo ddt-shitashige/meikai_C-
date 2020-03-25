@@ -13,7 +13,7 @@
 
 /**
  * @fn
- * strch_cat
+ * count_digits
  * @brief 数値のカウントを行う
  * @param s 文字列
  * @param a カウント結果
