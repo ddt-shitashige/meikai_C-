@@ -14,15 +14,15 @@
   * @fn
   * FakeStrcat
   * @brief 文字列の末尾結合を行う
-  * @param copyDestination コピー先
-  * @param copySource コピー元
+  * @param insertDestination 結合先
+  * @param insertSource 結合元
   * @return 
   */
-void FakeStrcat(char *copyDestination, const char *copySource) {
+void FakeStrcat(char *insertDestination, const char *insertSource) {
 	/* null文字が来るまでループ */
-	for (int i = 0; i < std::strlen(copySource); i++) {
+	for (int i = 0; i < std::strlen(insertSource); i++) {
 		/* 配列をコピー先のNull文字の後からコピー */
-		copyDestination[i+ std::strlen(copySource)] = copySource[i];
+		insertDestination[i+ std::strlen(insertSource)] = insertSource[i];
 	}
 	return;
 }
@@ -31,16 +31,16 @@ void FakeStrcat(char *copyDestination, const char *copySource) {
  * @fn
  * FakeStrncat
  * @brief 文字列の末尾結合を行う
- * @param copyDestination コピー先
- * @param copySource コピー元
+ * @param insertDestination 結合先
+ * @param insertSource 結合元
  * @param stringNumber 文字数
  * @return 
  */
-void FakeStrncat(char *copyDestination, const char *copySource, int stringNumber) {
+void FakeStrncat(char *insertDestination, const char *insertSource, int stringNumber) {
 	/* null文字が来るまでループ */
 	for (int i = 0; i < stringNumber; i++) {
 		/* 配列をコピー先のNull文字の後からコピー */
-		copyDestination[i + std::strlen(copySource)] = copySource[i];
+		insertDestination[i + std::strlen(insertSource)] = insertSource[i];
 	}
 	return;
 }
