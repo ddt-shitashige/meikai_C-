@@ -11,22 +11,22 @@
 
 
 
-/**
- * @fn
- * count_digits
- * @brief 数値のカウントを行う
- * @param s 文字列
- * @param a カウント結果
- * @return
- */
+ /**
+  * @fn
+  * count_digits
+  * @brief 数値のカウントを行う
+  * @param s 文字列
+  * @param a カウント結果
+  * @return
+  */
 void count_digits(const char *s, int c[]) {
 	int count = 0;	// カウンタ
 	/* null文字が来るまでループ */
 	for (int i = 0; i < std::strlen(s); i++) {
 		/* 文字が0以上9以下だった場合の処理 */
-		if (s[i]>='0'&&s[i]<='9' ) {
+		if (s[i] >= '0' && s[i] <= '9') {
 			/* cの中の数値をカウントアップ(0で引くのは文字コードの関係) */
-			c[s[i]-'0']++;
+			c[s[i] - '0']++;
 		}
 	}
 	return;
@@ -43,7 +43,7 @@ int main() {
 
 	const int stringLen = 30;	// 文字長さ
 
-	int countArray[10]={0};	// カウントの構造体 
+	int countArray[10] = { 0 };	// カウントの構造体 
 
 	char inputString[stringLen];	// 入力文字
 
@@ -55,11 +55,11 @@ int main() {
 
 	/* カウント関数呼び出し */
 	count_digits(inputString, countArray);
-	
+
 	/* countArrayの配列の要素数分ループする */
 	for (int i = 0; i < sizeof(countArray) / sizeof(int); i++) {
 		/* 結果出力 */
-		std::cout<<"c["<<i<<"]"<<"="<<countArray[i]<<"\n";
+		std::cout << "c[" << i << "]" << "=" << countArray[i] << "\n";
 	}
 
 
