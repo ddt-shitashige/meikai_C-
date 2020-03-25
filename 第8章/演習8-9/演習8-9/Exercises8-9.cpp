@@ -18,14 +18,13 @@
   * @param copySource コピー元
   * @return 文字個数
   */
-int FakeStrcpy(char *copyDestination, const char *copySource) {
-	int count = 0;	// カウンタ
+void FakeStrcpy(char *copyDestination, const char *copySource) {
 	/* null文字が来るまでループ */
 	for (int i = 0; i < std::strlen(copySource); i++) {
 		/* 配列のコピー */
 		copyDestination[i] = copySource[i];
 	}
-	return count;
+	return;
 }
 
 /**
@@ -37,14 +36,13 @@ int FakeStrcpy(char *copyDestination, const char *copySource) {
  * @param stringNumber 文字数
  * @return 文字個数
  */
-int FakeStrncpy(char *copyDestination, const char *copySource, int stringNumber) {
-	int count = 0;	// カウンタ
+void FakeStrncpy(char *copyDestination, const char *copySource, int stringNumber) {
 	/* null文字が来るまでループ */
 	for (int i = 0; i < stringNumber; i++) {
 		/* 配列のコピー */
 		copyDestination[i] = copySource[i];
 	}
-	return count;
+	return;
 }
 
 
