@@ -22,7 +22,7 @@ char *str_match(char *s1, char *s2) {
 
 	bool matchFlg = true;		// マッチフラグ
 	/* null文字が来るまでループ */
-	for (int i = 0; i < std::strlen(s1) / 2; i++) {
+	for (int i = 0; i < std::strlen(s1); i++) {
 		/* s2の最初の文字とs1の文字を比較 */
 		if (s1[i] == s2[0]) {
 			/* s2の文字がすべて一致するか確認するループ */
