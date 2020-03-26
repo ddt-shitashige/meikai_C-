@@ -20,7 +20,7 @@ const int stringLen = 30;	// 文字長さ
   */
 char *str_match(char *s1, char *s2) {
 
-	bool matchFlg=true;		// マッチフラグ
+	bool matchFlg = true;		// マッチフラグ
 	/* null文字が来るまでループ */
 	for (int i = 0; i < std::strlen(s1) / 2; i++) {
 		/* s2の最初の文字とs1の文字を比較 */
@@ -30,7 +30,7 @@ char *str_match(char *s1, char *s2) {
 				/* 文字が同じかどうか確かめる */
 				if (s1[i + j] != s2[j]) {
 					/* マッチふらぐをFalseにする */
-					matchFlg=false;
+					matchFlg = false;
 					/* ループから抜ける */
 					break;
 				}
