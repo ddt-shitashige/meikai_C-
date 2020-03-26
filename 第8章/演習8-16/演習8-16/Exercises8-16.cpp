@@ -19,7 +19,6 @@ const int stringLen = 30;	// 文字長さ
   */
 char *strrmv_digits(char *s) {
 
-	bool matchFlg = true;		// マッチフラグ
 	char judgementString[stringLen];	// 判断文字列
 	int matchCount = 0;	// マッチカウント
 
