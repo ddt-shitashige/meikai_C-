@@ -12,7 +12,7 @@ const int stringLen = 30;	// •¶š’·‚³
 
  /**
   * @fn
-  * str_match
+  * strrmv_digits
   * @brief •¶š—ñ‚­‚è‚Ê‚«‚ğs‚¤
   * @param s •¶š—ñ
   * @return ‚­‚è‚Ê‚¢‚½•¶š
