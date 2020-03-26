@@ -13,10 +13,10 @@ const int stringLen = 30;	// 文字長さ
  /**
   * @fn
   * str_match
-  * @brief 文字列反転を行う
+  * @brief 文字列検索を行う
   * @param s1 文字列1
   * @param s2 文字列2
-  * @return 反転した文字
+  * @return 検索後のポインタ
   */
 char *str_match(char *s1, char *s2) {
 
