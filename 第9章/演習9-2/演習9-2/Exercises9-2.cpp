@@ -14,8 +14,8 @@
   * @fn
   * gcd
   * @brief 最大公約数を求める
-  * @param firstPointer 1番目のポインタ
-  * @param secondPointer 2番目のポインタ
+  * @param x 辺の長さ
+  * @param y 辺の長さ
   * @return
   */
 int gcd(int x, int y) {
