@@ -4,7 +4,7 @@
  *					int gcd(int x, int y)
  *					を作成せよ。
  * @author shitashige
- * @date 20200326
+ * @date 20200327
  */
 
 
@@ -12,8 +12,8 @@
 
  /**
   * @fn
-  * ChangePointer
-  * @brief 数値の階乗を行う
+  * gcd
+  * @brief 最大公約数を求める
   * @param firstPointer 1番目のポインタ
   * @param secondPointer 2番目のポインタ
   * @return
