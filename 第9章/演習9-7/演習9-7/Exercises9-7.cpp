@@ -20,7 +20,7 @@ namespace English {
 	 * @brief メッセージ表示
 	 * @return
 	 */
- 	void print_x() {
+	void print_x() {
 		/* メッセージ表示 */
 		cout << "The value of x is " << x << ".\n";
 	}
@@ -63,12 +63,12 @@ namespace Japanese {
 	}
 
 	namespace Osaka {
-	/**
-	 * @fn
-	 * print_x
-	 * @brief メッセージ表示
-	 * @return
-	 */
+		/**
+		 * @fn
+		 * print_x
+		 * @brief メッセージ表示
+		 * @return
+		 */
 		void print_x() {
 			/* メッセージ表示 */
 			cout << "変数xの値は" << English::x << "でっせ。\n";
