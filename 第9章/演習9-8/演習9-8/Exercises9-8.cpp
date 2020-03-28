@@ -58,32 +58,32 @@ int Japanese::x = 2;	// 変数x
 
 
 /**
-	* @fn
-	* print_x
-	* @brief メッセージ表示
-	* @return
-	*/
+ * @fn
+ * print_x
+ * @brief メッセージ表示
+ * @return
+ */
 void Japanese::print_x() {
 	/* メッセージ表示 */
 	cout << "変数xの値は" << x << "です。\n";
 }
 /**
-	* @fn
-	* hello
-	* @brief メッセージ表示
-	* @return
-	*/
+ * @fn
+ * hello
+ * @brief メッセージ表示
+ * @return
+ */
 void Japanese::hello() {
 	/* メッセージ表示 */
 	cout << "こんにちは！\n";
 }
 
 /**
-	* @fn
-	* print_x
-	* @brief メッセージ表示
-	* @return
-	*/
+ * @fn
+ * print_x
+ * @brief メッセージ表示
+ * @return
+ */
 void Japanese::Osaka::print_x() {
 	/* メッセージ表示 */
 	cout << "変数xの値は" << English::x << "でっせ。\n";
