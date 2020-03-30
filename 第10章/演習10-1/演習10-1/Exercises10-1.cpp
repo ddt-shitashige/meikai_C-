@@ -9,12 +9,12 @@
 #include <iostream>;
 #include "Exercises10-1.h"
 
-/**
- * @fn
- * GetName
- * @brief 名前取得
- * @return
- */
+ /**
+  * @fn
+  * GetName
+  * @brief 名前取得
+  * @return
+  */
 std::string Human::GetName() {
 	return name;
 }
@@ -47,7 +47,7 @@ double Human::GetWeight() {
  * @return
  */
 void Human::SetName(std::string name) {
-	Human::name=name;
+	Human::name = name;
 	return;
 }
 
@@ -93,9 +93,6 @@ int main() {
 	/* 体重定義 */
 	owner.SetWeight(85.2);
 
-	std::cout<<"名前："<<owner.GetName()<<"\n身長："<<owner.GetHeight()<<"\n体重："<<owner.GetWeight();
+	std::cout << "名前：" << owner.GetName() << "\n身長：" << owner.GetHeight() << "\n体重：" << owner.GetWeight();
 
 }
-
-
-
