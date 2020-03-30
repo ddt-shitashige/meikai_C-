@@ -123,11 +123,11 @@ istream &operator>>(istream &s, Date &x) {
  */
 int main()
 {
-	Date x;	// クラス定義
+	Date date;	// クラス定義
 	/* メッセージ表示 */
 	cout << "**/**/**形式";
 	/* 入力 */
-	cin >> x;
+	cin >> date;
 	/* 結果表示 */
-	cout << "日付：" << x << '\n';
+	cout << "日付：" << date << '\n';
 }
