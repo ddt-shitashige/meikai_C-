@@ -1,18 +1,43 @@
+/**
+ * @file Exerises10-2.cpp
+ * @brief 演習10-2	自動車クラスCarにデータメンバやメンバ関数を自由に追加せよ（ナンバーを表すデータメンバを追加する、燃費を表すデータメンバを追加する、移動による燃料残量の計算に燃費を反映させる、タンク容量を表すデータメンバを追加する、給油のためのメンバ関数を追加するetc…）。
+ * @author shitashige
+ * @date 20200330
+ */
 
 #include <iostream>
 
 #include "car.h"
 
+ /**
+  * @fn
+  * GetNumber
+  * @brief ナンバー取得
+  * @return
+  */
 char *Car::GetNumber() {
 	return number;
 }
 
 
+/**
+ * @fn
+ * SetConsumption
+ * @brief 燃費設定
+ * @return
+ */
 void Car::SetConsumption(double consumption) {
 	/* 燃費設定 */
 	Car::consumption = consumption;
 	return;
 }
+
+/**
+ * @fn
+ * SetNumber
+ * @brief ナンバー設定
+ * @return
+ */
 void Car::SetNumber(char *number) {
 
 	/* ナンバー変更 */
@@ -25,6 +50,12 @@ void Car::SetNumber(char *number) {
 	Car::number[3] = number[3];
 }
 
+/**
+ * @fn
+ * Move
+ * @brief 移動
+ * @return
+ */
 void Car::Move(double distance) {
 	/* 走行距離分燃料を引く */
 	Car::tank -= distance / Car::consumption;
@@ -40,13 +71,24 @@ void Car::Move(double distance) {
 }
 
 
+/**
+ * @fn
+ * refueling
+ * @brief 年長追加
+ * @return
+ */
 void Car::refueling(double amount) {
 	/* 燃料加算 */
 	Car::tank += amount;
 }
 
 
-
+/**
+ * @fn
+ * main
+ * @brief メイン関数
+ * @return
+ */
 int main() {
 	Car car;	// 車
 	/* 燃料追加 */
