@@ -90,7 +90,7 @@ void Car::refueling(double amount) {
  * @return
  */
 int Car::GetBuyYear() {
-    return BuyYear;
+	return BuyYear;
 }
 
 /**
@@ -101,7 +101,7 @@ int Car::GetBuyYear() {
  * @return
  */
 int Car::GetBuyMonth() {
-    return BuyMonth;
+	return BuyMonth;
 }
 
 
@@ -113,7 +113,7 @@ int Car::GetBuyMonth() {
  * @return
  */
 int Car::GetBuyDay() {
-    return BuyDay;
+	return BuyDay;
 }
 
 
@@ -125,8 +125,8 @@ int Car::GetBuyDay() {
  * @return
  */
 void Car::SetBuyYear(int year) {
-    /* w“ü”N‚ğİ’è */
-    BuyYear = year;
+	/* w“ü”N‚ğİ’è */
+	BuyYear = year;
 }
 
 
@@ -138,8 +138,8 @@ void Car::SetBuyYear(int year) {
  * @return
  */
 void Car::SetBuyMonth(int month) {
-    /* w“üŒ‚ğİ’è */
-    BuyMonth = month;
+	/* w“üŒ‚ğİ’è */
+	BuyMonth = month;
 }
 
 
@@ -151,8 +151,8 @@ void Car::SetBuyMonth(int month) {
  * @return
  */
 void Car::SetBuyDay(int day) {
-    /* w“ü“ú‚ğİ’è */
-    BuyDay = day;
+	/* w“ü“ú‚ğİ’è */
+	BuyDay = day;
 }
 
 
@@ -173,15 +173,15 @@ int main() {
 	/* ˆÚ“® */
 	car.Move(10);
 
-    /* w“ü”N’è‹` */
-    car.SetBuyYear(12);
+	/* w“ü”N’è‹` */
+	car.SetBuyYear(12);
 
-    /* w“üŒ’è‹` */
-    car.SetBuyMonth(12);
-    /* w“ü“ú’è‹` */
-    car.SetBuyDay(14);
+	/* w“üŒ’è‹` */
+	car.SetBuyMonth(12);
+	/* w“ü“ú’è‹` */
+	car.SetBuyDay(14);
 
 
-    std::cout<<"w“ü”NŒ“ú‚Í["<<car.GetBuyYear()<<"/"<<car.GetBuyMonth()<<"/"<<car.GetBuyDay()<<"]‚Å‚·";
+	std::cout << "w“ü”NŒ“ú‚Í[" << car.GetBuyYear() << "/" << car.GetBuyMonth() << "/" << car.GetBuyDay() << "]‚Å‚·";
 
 }
