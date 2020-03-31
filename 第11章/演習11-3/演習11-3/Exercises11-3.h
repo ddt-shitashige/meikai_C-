@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 class Time {
 private:
 	int hour;	// ŽžŠÔ
