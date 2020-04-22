@@ -51,12 +51,11 @@ unsigned rrotate(unsigned x, int n) {
  */
 unsigned lrotate(unsigned x, int n) {
 
-	unsigned bottomNumber = 0;	// 最下層のビット値
-	unsigned topNumber = 0U;	// 最上位のビット値(一旦オール1にする)
+	unsigned topNumber = 0;	// 最上位のビット値
 	/* 回転数分ループ */
 	for (int i = 0; i < n; i++) {
 		/* 最上位のピット値取得 */
-		topNumber = x & (0U / 2) + 1;
+		topNumber = x & 1>>sizeof(unsigned);
 
 		/* トップナンバーが0なら最上は0 */
 		if (topNumber == 0) {
