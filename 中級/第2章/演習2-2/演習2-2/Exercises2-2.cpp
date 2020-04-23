@@ -1,6 +1,6 @@
 /**
  * @file Exerises2-2.cpp
- * @brief 演習2-2 符号無し整数xの全ビットを右にnビット回転した値を返す関数rrotateと、左にnビット開店した値を返すlrotateを作成せよ。
+ * @brief 演習2-2 符号無し整数xの全ビットを右にnビット回転した値を返す関数rrotateと、左にnビット回転した値を返すlrotateを作成せよ。
  * @author shitashige
  * @date 20020420
  */
@@ -19,23 +19,30 @@
 unsigned rrotate(unsigned x, int n) {
 
 	unsigned bottomNumber = 0;	// 最下層のビット値
-	unsigned topNumber = 0U;	// 最上位のビット値(一旦オール1にする)
+	unsigned topNumber = ~0;	// 最上位のビット値
+
+
+	/* 最上位のビット値を左に1ずらす */
+	topNumber = topNumber / 2;
+
+	/* +1して、最上位のみ1にする */
+	topNumber++;
+
 	/* 回転数分ループ */
 	for (int i = 0; i < n; i++) {
 		/* 最下層のピット値取得 */
 		bottomNumber = x & 1U;
 
-		/* 最上位のビット値を左に1ずらす */
-		topNumber = topNumber / 2;
+		/* 最下層のビット値によって処理を変える */
+		if (bottomNumber == 1) {
+			/* 計算 */
+			x = x / 2 + topNumber;
 
-		/* +1して、最上位のみ1にする */
-		topNumber++;
-
-		/* 最下層の値最上位を同じにする */
-		topNumber = topNumber * bottomNumber;
-
-		/* 計算 */
-		x = x / 2 + topNumber;
+		}
+		else {
+			/* 計算 */
+			x = x / 2;
+		}
 
 	}
 	return x;
@@ -55,7 +62,7 @@ unsigned lrotate(unsigned x, int n) {
 	/* 回転数分ループ */
 	for (int i = 0; i < n; i++) {
 		/* 最上位のピット値取得 */
-		topNumber = x & 1>>sizeof(unsigned);
+		topNumber = x & 1<<(sizeof(unsigned)-1);
 
 		/* トップナンバーが0なら最上は0 */
 		if (topNumber == 0) {
