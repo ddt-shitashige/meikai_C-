@@ -49,6 +49,12 @@ void charPrintBits(char x) {
 	}
 }
 
+
+/**
+ * @fn
+ * @brief short型のビット値を表示する関数
+ * @param x 数値
+ */
 void shortPrintBits(short x) {
 	/* ビット数分ループする */
 	for (int i = sizeof(short) * 8 - 1; i >= 0; i--) {
@@ -57,6 +63,11 @@ void shortPrintBits(short x) {
 	}
 }
 
+/**
+ * @fn
+ * @brief long型のビット値を表示する関数
+ * @param x 数値
+ */
 void longPrintBits(long x) {
 	/* ビット数分ループする */
 	for (int i = sizeof(long) * 8 - 1; i >= 0; i--) {
@@ -66,7 +77,11 @@ void longPrintBits(long x) {
 }
 
 
-
+/**
+ * @fn
+ * @brief メイン関数
+ * @return 
+ */
 int main() {
 	short number;	// 数値
 	/* メッセージ出力 */
