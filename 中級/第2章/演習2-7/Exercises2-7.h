@@ -35,7 +35,5 @@ public:
 	bool is_proper_subset_of(const BitSet& s);
 
 private:
-	unsigned long bitVector;
-
-
+	unsigned long bitVector;	// ビットベクトル
 };
