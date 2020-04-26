@@ -1,3 +1,9 @@
+/**
+ * @file Exerises3-4.cpp
+ * @brief 演習3-4	いかに示す関数f(x)を台形公式によって積分した値を返却する関数daikeiを作成せよ。
+ * @author shitashige
+ * @date 20200426
+ */
 
 
 
@@ -11,7 +17,7 @@
  * @return 結果
  */
 double f(double x) {
-	return 2 * x;
+	return x*x+1;
 }
 
 /*
@@ -51,6 +57,6 @@ double daikei(double x1, double x2, int n, double fp(double)) {
  */
 int main() {
 
-	std::cout << "面積は" << daikei(0, 10, 10, f) << "です。";
+	std::cout << "面積は" << daikei(0, 3, 3, f) << "です。";
 
 }
