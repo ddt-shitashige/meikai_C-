@@ -95,119 +95,221 @@ static bool callflg = false;
  */
 void margesort(void* base, size_t nmemb, size_t size, int(*compar)(const void*, const void*)) {
 
-	int result = 0;	// 結果
-	int flontElement = 0;	// 前の要素数
-	const char* target = reinterpret_cast<const char*>(base);	//対象物
-	/* 要素が1だった場合、何もしない */
-	if (nmemb == 1) {
-		flontElement = 1;	// 前の要素数を1にする。
+
+	char *answer=NULL;	// 答え　
+
+	/* メモリ確保ループ */
+	for (int i = 0; i < nmemb * size; i++) {
+		/* メモリ確保 */
+		answer=new char[nmemb * size];
 	}
-	/* 要素が2だった場合、 */
-	else if (nmemb == 2) {
-		/* 値を比較 */
-		result = Compar(target, target + size);
+	const char* target = reinterpret_cast<const char*>(base);	//対象物
+
+
+	/* 値格納ループ */
+	for (int i = 0; i < nmemb; i++) {
+		/* 値格納 */
+		answer[i*size]= target[i];
+	}
+	
+
+	int result = 0;	// 結果
+
+	/* 比較ループ */
+	for (int i = 0; i < nmemb/2; i++) {
+		/* 値比較 */
+		result = Compar(const_cast<void*>(reinterpret_cast<const void*>(&answer[2 * (i * size)])), const_cast<void*>(reinterpret_cast<const void*>(&answer[2 * (i * size) + 1])));
 		/* 左の数値の方が大きかった場合の処理 */
 		if (result == 1) {
 			/* 値を入れ替える */
-			memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[0])),
-				const_cast<void*>(reinterpret_cast<const void*>(&target[size])), size);
+			memswap(const_cast<void*>(reinterpret_cast<const void*>(&answer[2*(i*size)])),
+				const_cast<void*>(reinterpret_cast<const void*>(&answer[2*(i*size)+1])), size);
 		}
-	}
-	else {
-		/* 後半部でなかった場合 */
-		if (callflg == false) {
-			/* 呼び出しフラグをTRUEにする */
-			callflg = true;
-			/*  要素を分割する*/
-			margesort(const_cast<void*>(reinterpret_cast<const void*>(target)), nmemb / 2, size, Compar);
-		}
-		else {
-			/*  要素を分割する*/
-			margesort(const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb/2])), nmemb / 2, size, Compar);
 
-		}
 	}
-
-	/*
-	 * 反対側の処理を行なう
-	 */
-	int halfNmemb = nmemb / 2;	// 半分の要素数
 	int leftUpper = 0;	// 入れ替えたかの確認(左
 	int rightUpper = 0;	// 入れ替えたかの確認(右)
+	char *cache;	// キャッシュ
+	int count;	// カウント
+	/* 値格納ループ */
+	for (int i = 1; i*2 < nmemb ; i++) {
+		count=0;
+		/* 値格納ループ */
+		for(int j=1;j*j*i<nmemb;j++){
+			/* 初期可*/
+			leftUpper = 0;
+			/* 初期化 */
+			rightUpper = 0;
+			/* メモリ確保 */
+			cache = new char[i * 4 * size];
 
-
-
-	 /* 要素が1だった場合の処理*/
-	if (nmemb == 2 && flontElement == 1) {
-		/* 値並べ替えループ */
-		for (int i = 0; i < 2; i++) {
-			/* 前と後ろの値を比較 */
-			result = Compar(target + (i * size), target + (halfNmemb + 2) * size);
-			/* 左の数値の方が大きかった場合の処理 */
-			if (result == 1) {
-				/* 値を入れ替える */
-				memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[halfNmemb * size])),
-					const_cast<void*>(reinterpret_cast<const void*>(&target[(halfNmemb * size + size) * size])), size);
-			}
-		}
-	}
-	/* 右要素が2だった場合、 */
-	else if (nmemb == 1 || nmemb == 2) {
-		/* 値を比較 */
-		result = Compar(target, target + (nmemb * size));
-		/* 左の数値の方が大きかった場合の処理 */
-		if (result == 1) {
-			/* 値を入れ替える */
-			memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb*size])),
-				const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb * size+1])), size);
-			/* 入れ替えた数値(左)をインクリメント */
-		}
-		/* 値並べ替えループ */
-		for (int i = 0; i < 2; i++) {
-
-			/* 呼び出しフラグがONならループ脱出 */
-			if (callflg == true) {
-				break;
-			}
-			/* 前と後ろの値を比較 */
-			result = Compar(target + (leftUpper) * size, target + (nmemb + rightUpper) * size);
-			/* 左の数値の方が大きかった場合の処理 */
-			if (result == 1) {
-				/* 比較が初回の場合2桁入れ替える */
-				if (leftUpper == 0 && rightUpper == 0) {
-					/* 値を入れ替える */
-					memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[0])),
-						const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb * size])), size);
-					/* 値を入れ替える */
-					memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[size])),
-						const_cast<void*>(reinterpret_cast<const void*>(&target[(nmemb + 1) * size])), size);
-
+			/* 値格納ループ */
+			for (int k = 0; leftUpper<i* 2&&rightUpper<i*2; k++) {
+				/* 前と後ろの値を比較 */
+				result = Compar(answer + (leftUpper+j*j-1) * size, answer + (1*j+j*j*i + rightUpper) * size);
+				/* 左の数値の方が大きかった場合の処理 */
+				if (result == 1) {
+					/* 値格納 */
+					cache[k]=answer[1*j + j * j + rightUpper];
+					/* 1になったら、右をインクリメント */
+					rightUpper++;
 				}
 				else {
-					/* 値を入れ替える */
-					memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[(+leftUpper) * size])),
-						const_cast<void*>(reinterpret_cast<const void*>(&target[(nmemb + rightUpper) * size])), size);
-				}
-				/* 1になったら、右をインクリメント */
-				leftUpper =1;
-			}
-			else {
-				/* 1になったら、左をインクリメント */
-				rightUpper = 1;
+					/* 値格納 */
+					cache[k] = answer[leftUpper + j * j-1];
 
-				/* 先頭要素が1つだった場合、ブレイク */
-				if (flontElement == 1) {
-					break;
+					/* 1になったら、左をインクリメント */
+					leftUpper++;
 				}
 			}
+			/* 左が先に到達した場合 */
+			if (leftUpper == i*2) {
+				/* 値格納ループ */
+				for(int l=leftUpper+rightUpper;l<j*4;l++){
+					/* 値格納 */
+					cache[l]=answer[rightUpper+count];
+					/* インクリメント */
+					rightUpper++;
+				}
+			}
+
+			/* 右が先に到達した場合 */
+			if (rightUpper == i * 2) {
+				/* 値格納ループ */
+				for (int k = leftUpper + rightUpper; k < i * 4; k++) {
+					/* 値格納 */
+					cache[k] = answer[leftUpper + count*(j-1)];
+					/* インクリメント */
+					leftUpper++;
+				}
+			}
+
+			/* 値格納ループ */
+			for (int l = 0; l < i * 4; l++) {
+				/* 値格納 */
+				answer[count]=cache[l];
+				count++;
+			}
+
+			/* メモリ開放 */
+			delete[] cache;
 		}
+
 	}
-	else {
-		/* 呼び出しフラグをONにする */
-		callflg = true;
-		/*  要素を分割する*/
-		margesort(const_cast<void*>(reinterpret_cast<const void*>(&target[(nmemb * size)])), nmemb, size, Compar);
-	}
+
+	//int result = 0;	// 結果
+	//int flontElement = 0;	// 前の要素数
+	//const char* target = reinterpret_cast<const char*>(base);	//対象物
+	///* 要素が1だった場合、何もしない */
+	//if (nmemb == 1) {
+	//	flontElement = 1;	// 前の要素数を1にする。
+	//}
+	///* 要素が2だった場合、 */
+	//else if (nmemb == 2) {
+	//	/* 値を比較 */
+	//	result = Compar(target, target + size);
+	//	/* 左の数値の方が大きかった場合の処理 */
+	//	if (result == 1) {
+	//		/* 値を入れ替える */
+	//		memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[0])),
+	//			const_cast<void*>(reinterpret_cast<const void*>(&target[size])), size);
+	//	}
+	//}
+	//else {
+	//	/* 後半部でなかった場合 */
+	//	if (callflg == false) {
+	//		/* 呼び出しフラグをTRUEにする */
+	//		callflg = true;
+	//		/*  要素を分割する*/
+	//		margesort(const_cast<void*>(reinterpret_cast<const void*>(target)), nmemb / 2, size, Compar);
+	//	}
+	//	else {
+	//		/*  要素を分割する*/
+	//		margesort(const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb/2])), nmemb / 2, size, Compar);
+
+	//	}
+	//}
+
+	///*
+	// * 反対側の処理を行なう
+	// */
+	//int halfNmemb = nmemb / 2;	// 半分の要素数
+	//int leftUpper = 0;	// 入れ替えたかの確認(左
+	//int rightUpper = 0;	// 入れ替えたかの確認(右)
+
+
+
+	// /* 要素が1だった場合の処理*/
+	//if (nmemb == 2 && flontElement == 1) {
+	//	/* 値並べ替えループ */
+	//	for (int i = 0; i < 2; i++) {
+	//		/* 前と後ろの値を比較 */
+	//		result = Compar(target + (i * size), target + (halfNmemb + 2) * size);
+	//		/* 左の数値の方が大きかった場合の処理 */
+	//		if (result == 1) {
+	//			/* 値を入れ替える */
+	//			memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[halfNmemb * size])),
+	//				const_cast<void*>(reinterpret_cast<const void*>(&target[(halfNmemb * size + size) * size])), size);
+	//		}
+	//	}
+	//}
+	///* 右要素が2だった場合、 */
+	//else if (nmemb == 1 || nmemb == 2) {
+	//	/* 値を比較 */
+	//	result = Compar(target, target + (nmemb * size));
+	//	/* 左の数値の方が大きかった場合の処理 */
+	//	if (result == 1) {
+	//		/* 値を入れ替える */
+	//		memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb*size])),
+	//			const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb * size+1])), size);
+	//		/* 入れ替えた数値(左)をインクリメント */
+	//	}
+	//	/* 値並べ替えループ */
+	//	for (int i = 0; i < 2; i++) {
+
+	//		/* 呼び出しフラグがONならループ脱出 */
+	//		if (callflg == true) {
+	//			break;
+	//		}
+	//		/* 前と後ろの値を比較 */
+	//		result = Compar(target + (leftUpper) * size, target + (nmemb + rightUpper) * size);
+	//		/* 左の数値の方が大きかった場合の処理 */
+	//		if (result == 1) {
+	//			/* 比較が初回の場合2桁入れ替える */
+	//			if (leftUpper == 0 && rightUpper == 0) {
+	//				/* 値を入れ替える */
+	//				memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[0])),
+	//					const_cast<void*>(reinterpret_cast<const void*>(&target[nmemb * size])), size);
+	//				/* 値を入れ替える */
+	//				memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[size])),
+	//					const_cast<void*>(reinterpret_cast<const void*>(&target[(nmemb + 1) * size])), size);
+
+	//			}
+	//			else {
+	//				/* 値を入れ替える */
+	//				memswap(const_cast<void*>(reinterpret_cast<const void*>(&target[(+leftUpper) * size])),
+	//					const_cast<void*>(reinterpret_cast<const void*>(&target[(nmemb + rightUpper) * size])), size);
+	//			}
+	//			/* 1になったら、右をインクリメント */
+	//			leftUpper =1;
+	//		}
+	//		else {
+	//			/* 1になったら、左をインクリメント */
+	//			rightUpper = 1;
+
+	//			/* 先頭要素が1つだった場合、ブレイク */
+	//			if (flontElement == 1) {
+	//				break;
+	//			}
+	//		}
+	//	}
+	//}
+	//else {
+	//	/* 呼び出しフラグをONにする */
+	//	callflg = true;
+	//	/*  要素を分割する*/
+	//	margesort(const_cast<void*>(reinterpret_cast<const void*>(&target[(nmemb * size)])), nmemb, size, Compar);
+	//}
 
 }
 
@@ -217,7 +319,6 @@ void margesort(void* base, size_t nmemb, size_t size, int(*compar)(const void*, 
  * @return 0:正常終了
  */
 int main() {
-	//char string[] = "zyxwvutsrqponmlkjihgfedcba";	// 文字列配列1
 
 	char string[] = "65318724";
 
