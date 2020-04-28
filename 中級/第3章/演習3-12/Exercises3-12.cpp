@@ -1,3 +1,9 @@
+/**
+ * @file Exerises3-12.cpp
+ * @brief 演習3-12　qsort関数と同じ形式で呼び出すことのできる以下の関数を作成せよ。
+ * @author shitashige
+ * @date 20200428
+ */
 
 #include<iostream>
 
@@ -23,40 +29,6 @@ namespace {
 			*b = c;
 		}
 	}
-	/**
-	 * @fn
-	 * @brief 値入れ替え関数
-	 * @param x 入れ替えるポインタ
-	 * @param y 入れ替えるポインタ
-	 * @param element1 要素数1
-	 * @param element2 要素数2
-	 * @param data 返却用データ
-	 * @return 0:正常終了
-	 */
-	void Memcatch(void* x, void* y, size_t element1, size_t element2, unsigned char *data) {
-		unsigned char* a = reinterpret_cast<unsigned char*>(x);	// 型変換したポインタa
-		unsigned char* b = reinterpret_cast<unsigned char*>(y);	// 型変換したポインタb
-		int leftCount = 0;	// 左カウント
-		int rightCount = 0;	// 右カウント
-
-		/* カウントが要素数になるまでループ */
-		for (int i=0; leftCount < element1 || rightCount || element2;i++) {
-			/* 右と左を比較する */
-			if (a[leftCount] > b[rightCount]) {
-				/* 小さい値を格納 */
-				data[i] = b[rightCount];
-				/* インクリメント */
-				rightCount++;
-			}
-			else {
-				/* 小さい値を格納 */
-				data[i] = a[leftCount];
-				/* インクリメント */
-				leftCount++;
-			}
-		}
-	}
-
 }
 
 /*
