@@ -13,12 +13,17 @@ using namespace std;
 /* 機底クラス */
 class Base {
 	int x;
+
 public:
-	/* コンストラクタ */
-	Base(int xx=99); x(xx) { cout << "Base::xを"<<x<<"で初期化。\n"; }
+	///* コンストラクタ */
+
+	//Base(): x(99) { cout << "Base::xを"<<x<<"で初期化。\n"; }
+
+	Base(int xx=99): x(xx) { cout << "Base::xを"<<x<<"で初期化。\n"; }
 	/* xのゲッター */
 	int get_x()const { return x; }
 };
+
 
 /* 派生クラス */
 class Derived :public Base {
@@ -29,5 +34,5 @@ int main() {
 
 	Derived d;	// デリバード
 
-	cout<<"d.get_x() = "<<d.get_x()<<"\n"
+	cout << "d.get_x() = " << d.get_x() << "\n";
 }
