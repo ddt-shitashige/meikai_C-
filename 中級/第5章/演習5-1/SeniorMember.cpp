@@ -18,7 +18,7 @@ void SeniorMember::print() const {
 
 }
 
-void Member::introduce() {
+void SeniorMember::introduce() {
 	/* メッセージ表示 */
 	cout << "介護が必要な" << name();
 }

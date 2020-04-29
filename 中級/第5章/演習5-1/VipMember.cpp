@@ -17,7 +17,7 @@ void VipMember::print() const {
 }
 
 
-void Member::introduce() {
+void VipMember::introduce() {
 	/* メッセージ表示 */
 	cout << "上級国民の" << name();
 }
