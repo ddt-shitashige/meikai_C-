@@ -22,9 +22,8 @@ void exception_error() {
  */
 int main() {
 
-	int* c1 = NULL;
-		/* 例外発生時の処理を設定 */
-		set_terminate(exception_error);
-		/* エラー処理 */
-		terminate();
+	/* 例外発生時の処理を設定 */
+	set_terminate(exception_error);
+	/* エラー処理 */
+	terminate();
 }
