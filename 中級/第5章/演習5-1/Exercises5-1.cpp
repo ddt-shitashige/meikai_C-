@@ -1,4 +1,9 @@
-
+/**
+ * @file Exerises5-1.cpp
+ * @brief 演習5-1　会員クラスように自己紹介をするか創刊すじゅintroduceを追加せよ。表示内容は自分で考えること。
+ * @author shitashige
+ * @date 20191204
+ */
 #include "Member.h"
 #include "SeniorMember.h"
 #include "VipMember.h"
